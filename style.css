@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+header {
+  color: white;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #4ecca3;
+  font-size: 14px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-item .label {
+  color: #888;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.score-item .value {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Game Area */
+.game-area {
+  position: relative;
+  height: 350px;
+  background: #2d5a27;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 3px solid #4ecca3;
+}
+
+/* Pitch (grass strip) */
+.pitch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 200px;
+  background: #c4a35a;
+  border-radius: 5px;
+}
+
+/* Stumps */
+.stumps {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stump {
+  width: 8px;
+  height: 40px;
+  background: white;
+  border-radius: 3px;
+}
+
+/* Bails */
+.bails {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bail {
+  width: 10px;
+  height: 5px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Ball */
+.ball {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: #e94560;
+  border-radius: 50%;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.5s ease-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ball.bowling {
+  top: 280px;
+}
+
+.ball.hit {
+  background: #4ecca3;
+  top: 0px;
+  transition: top 0.3s ease-out;
+}
+
+/* Bowler emoji */
+.bowler {
+  position: absolute;
+  top: 270px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+}
+
+/* Batter emoji */
+.batter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 35px;
+  transition: transform 0.1s;
+}
+
+.batter.swinging {
+  transform: translateX(-50%) rotate(-30deg);
+}
+
+/* Hit Button */
+.hit-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  background: #4ecca3;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.hit-btn:hover {
+  background: #3db892;
+}
+
+.hit-btn:active {
+  transform: scale(0.95);
+}
+
+/* Result Display */
+.result {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #4ecca3;
+  min-height: 25px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #1a1a2e;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  border: 2px solid #4ecca3;
+  max-width: 300px;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #4ecca3;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.modal-content button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.modal-content button:first-of-type {
+  background: #4ecca3;
+  color: #1a1a2e;
+}
+
+.modal-content button:last-of-type {
+  background: #e94560;
+  color: white;
+}
+
+.modal-content button:active {
+  transform: scale(0.95);
+}

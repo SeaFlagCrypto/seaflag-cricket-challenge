@@ -1,0 +1,9 @@
+{
+  "name": "seaflag-cricket-challenge",
+  "version": "1.0.0",
+  "description": "Seaflag Cricket Challenge - Simple cricket tapping game for FarCast Mini App",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}

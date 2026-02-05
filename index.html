@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏏 Seaflag Cricket Challenge - 3 Overs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header -->
+    <header>
+      <h1>🏏 Seaflag Cricket Challenge</h1>
+      <p>Tap to hit the ball!</p>
+    </header>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <div class="score-item">
+        <span class="label">Score</span>
+        <span class="value" id="score">0</span>
+      </div>
+      <div class="score-item">
+        <span class="label">Wickets</span>
+        <span class="value" id="wickets">0/5</span>
+      </div>
+      <div class="score-item">
+        <span class="label">Overs</span>
+        <span class="value" id="overs">0.0 / 3.0</span>
+      </div>
+    </div>
+
+    <!-- Game Area -->
+    <div class="game-area" id="gameArea">
+      <div class="pitch">
+        <div class="bowler" id="bowler">🏏</div>
+        <div class="bails" id="bails"></div>
+        <div class="stumps" id="stumps"></div>
+        <div class="ball" id="ball"></div>
+      </div>
+      <div class="batter" id="batter">👋</div>
+    </div>
+
+    <!-- Hit Button -->
+    <button class="hit-btn" id="hitBtn" onclick="hitBall()">HIT!</button>
+
+    <!-- Result Display -->
+    <div class="result" id="result"></div>
+
+    <!-- Game Over Modal -->
+    <div class="modal" id="gameOverModal">
+      <div class="modal-content">
+        <h2>🏆 Match Complete!</h2>
+        <p id="finalScore"></p>
+        <button onclick="shareScore()">📤 Share Score</button>
+        <button onclick="restartGame()">🔄 Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
