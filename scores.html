@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏆 High Scores - Seaflag Cricket Challenge</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    h1 {
+      color: #4ecca3;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #888;
+      margin-bottom: 30px;
+    }
+    .scores-list {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .score-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    .score-item:last-child {
+      border-bottom: none;
+    }
+    .rank {
+      color: #4ecca3;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .score-value {
+      color: #e94560;
+      font-weight: bold;
+    }
+    .back-btn {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #4ecca3;
+      color: #1a1a2e;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .back-btn:hover {
+      background: #3db892;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏆 High Scores</h1>
+    <p>Top cricket performances!</p>
+    
+    <div class="scores-list" id="scoresList">
+      <div class="score-item">
+        <span><span class="rank">1.</span> 🏆 Champion</span>
+        <span class="score-value">150</span>
+      </div>
+      <div class="score-item">
+        <span><span class="rank">2.</span> 🥈 Runner Up</span>
+        <span class="score-value">120</span>
+      </div>
+      <div class="score-item">
+        <span><span class="rank">3.</span> 🥉 Third Place</span>
+        <span class="score-value">95</span>
+      </div>
+      <div class="score-item">
+        <span><span class="rank">4.</span> Player 4</span>
+        <span class="score-value">80</span>
+      </div>
+      <div class="score-item">
+        <span><span class="rank">5.</span> Player 5</span>
+        <span class="score-value">65</span>
+      </div>
+    </div>
+    
+    <a href="/" class="back-btn">← Back to Game</a>
+  </div>
+
+  <script>
+    // Load scores from localStorage
+    const scores = JSON.parse(localStorage.getItem('cricketScores') || '[]');
+    scores.sort((a, b) => b.score - a.score);
+    
+    const top5 = scores.slice(0, 5);
+    
+    if (top5.length > 0) {
+      const list = document.getElementById('scoresList');
+      list.innerHTML = '';
+      
+      const medals = ['🥇', '🥈', '🥉', '🏅', '🎖️'];
+      
+      top5.forEach((s, i) => {
+        const div = document.createElement('div');
+        div.className = 'score-item';
+        div.innerHTML = `
+          <span><span class="rank">${i + 1}.</span> ${medals[i]} ${s.name || 'Player'}</span>
+          <span class="score-value">${s.score}</span>
+        `;
+        list.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>

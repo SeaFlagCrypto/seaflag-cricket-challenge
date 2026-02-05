@@ -1,3 +1,17 @@
+<!-- FarCast Frame Meta Tags -->
+<meta property="fc:frame" content="vNext" />
+<meta property="fc:frame:image" content="https://seaflag-cricket-league.vercel.app/api/og" />
+<meta property="fc:frame:image:aspect_ratio" content="1.91:1" />
+<meta property="fc:frame:button:1" content="🏏 Play Cricket" />
+<meta property="fc:frame:button:1:action" content="link" />
+<meta property="fc:frame:button:1:target" content="https://seaflag-cricket-league.vercel.app" />
+<meta property="fc:frame:button:2" content="📊 High Scores" />
+<meta property="fc:frame:button:2:action" content="link" />
+<meta property="fc:frame:button:2:target" content="https://seaflag-cricket-league.vercel.app/scores" />
+<meta property="og:title" content="🏏 Seaflag Cricket Challenge" />
+<meta property="og:description" content="3 overs, 5 wickets - Tap to hit! Can you beat my score?" />
+<meta property="og:image" content="https://seaflag-cricket-league.vercel.app/api/og" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🏏 Seaflag Cricket Challenge - 3 Overs</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <div class="game-container">
@@ -36,6 +51,11 @@
         <div class="bowler" id="bowler">🏏</div>
         <div class="bails" id="bails"></div>
         <div class="stumps" id="stumps"></div>
+        <div class="stump"></div>
+        <div class="stump"></div>
+        <div class="stump"></div>
+        <div class="bail"></div>
+        <div class="bail"></div>
         <div class="ball" id="ball"></div>
       </div>
       <div class="batter" id="batter">👋</div>
@@ -52,7 +72,7 @@
       <div class="modal-content">
         <h2>🏆 Match Complete!</h2>
         <p id="finalScore"></p>
-        <button onclick="shareScore()">📤 Share Score</button>
+        <button onclick="shareScore()">📤 Share on FarCast</button>
         <button onclick="restartGame()">🔄 Play Again</button>
       </div>
     </div>

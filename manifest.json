@@ -1,0 +1,10 @@
+{
+  "name": "Seaflag Cricket Challenge",
+  "description": "Simple cricket tapping game - 3 overs, 5 wickets",
+  "icon": "🏏",
+  "url": "https://seaflag-cricket-league.vercel.app",
+  "colors": {
+    "primary": "#4ecca3",
+    "background": "#1a1a2e"
+  }
+}
